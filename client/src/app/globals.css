@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 font-inter;
+  }
+
+  h1 {
+    @apply text-2xl font-semibold text-gray-900;
+  }
+
+  h2 {
+    @apply text-xl font-medium text-gray-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-main hover:bg-primary-dark text-white px-4 py-2 rounded-lg transition-colors duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-main;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm p-6;
+  }
+}
+
+.sidebar {
+  width: 250px; /* Adjust width as needed */
+  background-color: #fff; /* Background color */
+  border-right: 1px solid #e5e5e5; /* Optional border */
+  transition: none; /* No transition since it won't hide */
+}
+
+.sidebar.closed {
+  transform: translateX(-100%); /* Hide the sidebar */
+}
+
+.sidebar.open {
+  transform: translateX(0); /* Show the sidebar */
+}
+
+.sidebar a {
+  @apply py-2 px-4 hover:bg-gray-200; /* Link styles */
+}
+
+.toggle-button {
+  @apply bg-primary-main hover:bg-primary-dark text-white px-4 py-2 rounded-lg transition-colors duration-200; /* Button styles */
+}
