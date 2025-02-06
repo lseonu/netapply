@@ -42,7 +42,10 @@ export async function POST(request: Request) {
       model: "gpt-4",
       messages: [
         { role: "system", content: systemPrompt },
-        ...messages.map(m => ({ role: m.role as 'user' | 'assistant', content: m.content })),
+        ...(messages ?? []).map((m: { role: string; content: string }) => ({ 
+          role: m.role as 'user' | 'assistant', 
+          content: m.content 
+        })),
         { role: "user", content: content || `Analyze this resume for the job:\n\nJob Description: ${jobDescription}\n\nResume: ${resume}` }
       ],
       temperature: 0.7,
