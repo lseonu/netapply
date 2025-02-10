@@ -31,4 +31,14 @@ CREATE TABLE networking_contacts (
   status VARCHAR(50),
   last_contact_date TIMESTAMP,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Interaction history
+CREATE TABLE interaction_history (
+  id SERIAL PRIMARY KEY,
+  connection_id INTEGER REFERENCES networking_contacts(id),
+  interaction_type VARCHAR(50),
+  notes TEXT,
+  follow_up_date TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ); 
